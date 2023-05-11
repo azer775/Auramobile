@@ -68,7 +68,7 @@ public class afficher_post_form extends SideMenuBaseForm{
          Tabs swipe = new Tabs();
 
         Label spacer1 = new Label();
-        addTab(swipe, theme.getImage("logo.png"), spacer1, "  ", "", " ");
+        addTab(swipe, theme.getImage("Logo.png"), spacer1, "  ", "", " ");
                 
         swipe.setUIID("Container");
         swipe.getContentPane().setUIID("Container");

@@ -40,7 +40,7 @@ import com.codename1.ui.util.Resources;
  *
  * @author Shai Almog
  */
-public class ProfileForm extends BaseForm {
+public class ProfileForm extends SideMenuBaseForm {
 
     public ProfileForm(Resources res) {
         super("Newsfeed", BoxLayout.y());
@@ -50,7 +50,7 @@ public class ProfileForm extends BaseForm {
         setTitle("Profile");
         getContentPane().setScrollVisible(false);
         
-        super.addSideMenu(res);
+        super.setupSideMenu(res);
         
         tb.addSearchCommand(e -> {});
         

@@ -51,6 +51,7 @@ import com.codename1.ui.util.ImageIO;
 import com.codename1.ui.util.Resources;
 import com.codename1.util.Base64;
 import com.mycompany.gui.BaseForm;
+import com.mycompany.gui.SideMenuBaseForm;
 import com.mycompany.myapp.entities.Produit;
 import com.mycompany.myapp.entities.services.ServiceProduit;
 import java.io.ByteArrayOutputStream;
@@ -61,7 +62,7 @@ import java.io.IOException;
  *
  * @author Shai Almog
  */
-public class AddProduit extends BaseForm {
+public class AddProduit extends SideMenuBaseForm {
    String Imagecode;
    String filePath="";
 
@@ -73,7 +74,7 @@ public class AddProduit extends BaseForm {
         setTitle("Ajouter Produit");
         getContentPane().setScrollVisible(false);
         
-        super.addSideMenu(res);
+        super.setupSideMenu(res);
         
         tb.addSearchCommand(e -> {});
         

@@ -43,7 +43,7 @@ import com.codename1.ui.util.Resources;
  *
  * @author Shai Almog
  */
-public class WalkthruForm extends Form {
+public class WalkthruForm extends SideMenuBaseForm {
     public WalkthruForm(Resources res) {
         super(new LayeredLayout());
         getTitleArea().removeAll();

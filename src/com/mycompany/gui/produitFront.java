@@ -1,24 +1,9 @@
 /*
- * Copyright (c) 2016, Codename One
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
- * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions 
- * of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
- * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
- * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-
-package Produit.gui;
-
+package com.mycompany.gui;
 
 import com.codename1.components.ImageViewer;
 import com.codename1.components.ScaleImageLabel;
@@ -26,10 +11,12 @@ import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;
-import com.codename1.ui.Command;
 import com.codename1.ui.Component;
+import static com.codename1.ui.Component.BOTTOM;
+import static com.codename1.ui.Component.CENTER;
+import static com.codename1.ui.Component.LEFT;
+import static com.codename1.ui.Component.RIGHT;
 import com.codename1.ui.Container;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
@@ -42,8 +29,6 @@ import com.codename1.ui.Tabs;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.URLImage;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
@@ -51,38 +36,37 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
-import com.mycompany.gui.BaseForm;
-import com.mycompany.gui.SideMenuBaseForm;
+import com.mycompany.myapp.entities.Post;
 import com.mycompany.myapp.entities.Produit;
+import com.mycompany.myapp.entities.services.ServicePost;
 import com.mycompany.myapp.entities.services.ServiceProduit;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
- * The newsfeed form
  *
- * @author Shai Almog
+ * @author azerb
  */
-public class AllProduits extends SideMenuBaseForm {
-        Form current;
+public class produitFront extends SideMenuFront{
+     Form current;
            ImageViewer imgv;
-
-    public AllProduits(Resources res) {
-        super("Produits", BoxLayout.y());
+            public produitFront(Resources theme){
+    
+        super("Our Products", BoxLayout.y());
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
         getTitleArea().setUIID("Container");
-        setTitle("Produits");
+       // setTitle("Newsfeed");
         getContentPane().setScrollVisible(false);
         
-        super.setupSideMenu(res);
+        super.setupSideMenu(theme);
         tb.addSearchCommand(e -> {});
         
-        Tabs swipe = new Tabs();
+         Tabs swipe = new Tabs();
 
         Label spacer1 = new Label();
-        addTab(swipe, res.getImage("news-item.jpg"), spacer1, "  ", "", " ");
+        Label spacer2 = new Label();
+        addTab(swipe, theme.getImage("Logo.png"), spacer1, "", "", "");
+        addTab(swipe, theme.getImage("dog.jpg"), spacer2, "100 Likes  ", "66 Comments", "Dogs are cute: story at 11");
                 
         swipe.setUIID("Container");
         swipe.getContentPane().setUIID("Container");
@@ -105,6 +89,7 @@ public class AllProduits extends SideMenuBaseForm {
         FlowLayout flow = new FlowLayout(CENTER);
         flow.setValign(BOTTOM);
         Container radioContainer = new Container(flow);
+        
         for(int iter = 0 ; iter < rbs.length ; iter++) {
             rbs[iter] = RadioButton.createToggle(unselectedWalkthru, bg);
             rbs[iter].setPressedIcon(selectedWalkthru);
@@ -119,76 +104,58 @@ public class AllProduits extends SideMenuBaseForm {
             }
         });
         
-        Component.setSameSize(radioContainer, spacer1);
+         Component.setSameSize(radioContainer, spacer1, spacer2);
         add(LayeredLayout.encloseIn(swipe, radioContainer));
-                                    
-        Button Ajouter = new Button("Ajouter");
-        Ajouter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                    new AddProduit(res, current).show();
-            }
-        });
-        add(Ajouter);
+        
         ButtonGroup barGroup = new ButtonGroup();
-                  Container co=new Container(BoxLayout.xCenter());;
-                    ArrayList <Produit> produits = new ArrayList();
-                    ServiceProduit sa =new ServiceProduit();
-                    produits=sa.getAllProduits();
-
-                 for (Produit fi : produits) {
-                            Container ct = new Container(BoxLayout.y());
-                            String url = /*"file://C:/xampp/htdocs/produit_final/produit/public/images/product/"+ */fi.getImage();
+        RadioButton all = RadioButton.createToggle("All", barGroup);
+        all.setUIID("SelectBar");
+        
+        Label arrow = new Label(theme.getImage("news-tab-down-arrow.png"), "Container");
+        
+        add(LayeredLayout.encloseIn(
+                GridLayout.encloseIn(4, all),
+                FlowLayout.encloseBottom(arrow)
+        ));
+        
+        all.setSelected(true);
+        arrow.setVisible(false);
+        addShowListener(e -> {
+            arrow.setVisible(true);
+            updateArrowPosition(all, arrow);
+        });
+        bindButtonSelection(all, arrow);
+      
+        
+        // special case for rotation
+        addOrientationListener(e -> {
+            updateArrowPosition(barGroup.getRadioButton(barGroup.getSelectedIndex()), arrow);
+        });
+        ArrayList <Produit> posts = new ArrayList();
+        ServiceProduit sa =new ServiceProduit();
+        posts=sa.getAllProduits();
+        
+         for (Produit fi : posts) {
+             String url = /*"file://C:/xampp/htdocs/produit_final/produit/public/images/product/"+ */fi.getImage();
                             int deviceWidth = Display.getInstance().getDisplayWidth();
                             Image placeholder = Image.createImage( deviceWidth/3,  deviceWidth/3, 0xbfc9d2);
                             EncodedImage encImage = EncodedImage.createFromImage(placeholder, false);
                             Image i = URLImage.createToStorage(encImage, "fileNameInStoragez" + fi.getImage(),url, URLImage.RESIZE_SCALE);
-                                imgv = new ImageViewer();
-                                imgv.setImage(i);
-                                ct.add(imgv);
-                            Label l = new Label("ID : "+fi.getId());
-                            Label l2 = new Label("Nom : "+fi.getNom_Prod(),"SmallLabel");
-                            Label l3 = new Label("Prix : "+fi.getPrix(),"SmallLabel");
-                            //Label l4 = new Label("date : "+fi.getDateexpiration(),"RedLabel");
-                            l2.getAllStyles().setFgColor(0xf15f5f);
-                            ct.add(l);
-                            ct.add(l2);
-                            ct.add(l3);
-                           // ct.add(l4);
+                              /*  imgv = new ImageViewer();
+                                imgv.setImage(i);*/
+                            addButton(i, fi.getNom_Prod(), true, 0, 0);
 
-                            Button Modif = new Button("Modifier");
-                            Button Supprimer = new Button("Supprimer");
-                            Modif.addActionListener(new ActionListener() {
-                                            @Override
-            public void actionPerformed(ActionEvent evt) {               
-
-                                  new ModifierProduit(res,current,fi).show();                   
-                }   
-        });
-                            Supprimer.addActionListener(new ActionListener() {
-                                            @Override
-            public void actionPerformed(ActionEvent evt) {               
-                if (Dialog.show("Confirmation", "Voulez vous supprimer ce Produit ?", "Oui", "Annuler")) {
-
-                  if( ServiceProduit.getInstance().deleteProduit(fi.getId()))
-                            {
-                                Dialog.show("Success","supprimer",new Command("OK"));
-                                new AllProduits(res).show();
-                            }
-
-                            }
-                   
-                }   
-        });
-                       ct.add(Modif);
-                       ct.add(Supprimer);
-                       Label separator = new Label("","Separator");
-                       ct.add(separator);
-                       add(ct);
-               }
+         }
+                    
+       
     }
+    private void updateArrowPosition(Button b, Label arrow) {
+        arrow.getUnselectedStyle().setMargin(LEFT, b.getX() + b.getWidth() / 2 - arrow.getWidth() / 2);
+        arrow.getParent().repaint();
         
-    private void addTab(Tabs swipe, Image img, Label spacer, String likesStr, String commentsStr, String text) {
+        
+    }
+     private void addTab(Tabs swipe, Image img, Label spacer, String likesStr, String commentsStr, String text) {
         int size = Math.min(Display.getInstance().getDisplayWidth(), Display.getInstance().getDisplayHeight());
         if(img.getHeight() < size) {
             img = img.scaledHeight(size);
@@ -217,15 +184,16 @@ public class AllProduits extends SideMenuBaseForm {
                 BorderLayout.south(
                     BoxLayout.encloseY(
                             new SpanLabel(text, "LargeWhiteText"),
+                            FlowLayout.encloseIn(likes, comments),
                             spacer
                         )
                 )
             );
 
         swipe.addTab("", page1);
-    }
-    
-   private void addButton(Image img, String title, boolean liked, int likeCount, int commentCount) {
+       }
+     
+        private void addButton(Image img, String title, boolean liked, int likeCount, int commentCount) {
        int height = Display.getInstance().convertToPixels(11.5f);
        int width = Display.getInstance().convertToPixels(14f);
        Button image = new Button(img.fill(width, height));
@@ -236,7 +204,7 @@ public class AllProduits extends SideMenuBaseForm {
        ta.setUIID("NewsTopLine");
        ta.setEditable(false);
 
-       Label likes = new Label(likeCount + " Likes  ", "NewsBottomLine");
+      /* Label likes = new Label(likeCount + " Likes  ", "NewsBottomLine");
        likes.setTextPosition(RIGHT);
        if(!liked) {
            FontImage.setMaterialIcon(likes, FontImage.MATERIAL_FAVORITE);
@@ -249,13 +217,21 @@ public class AllProduits extends SideMenuBaseForm {
        Label comments = new Label(commentCount + " Comments", "NewsBottomLine");
        FontImage.setMaterialIcon(likes, FontImage.MATERIAL_CHAT);
        
-       
+       */
        cnt.add(BorderLayout.CENTER, 
                BoxLayout.encloseY(
-                       ta,
-                       BoxLayout.encloseX(likes, comments)
+                       ta
+                       //BoxLayout.encloseX(likes, comments)
                ));
        add(cnt);
        image.addActionListener(e -> ToastBar.showMessage(title, FontImage.MATERIAL_INFO));
    }
+        private void bindButtonSelection(Button b, Label arrow) {
+        b.addActionListener(e -> {
+            if(b.isSelected()) {
+                updateArrowPosition(b, arrow);
+            }
+        });
     }
+    
+}

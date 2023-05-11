@@ -53,7 +53,7 @@ public abstract class SideMenuFront extends Form{
      
     public void setupSideMenu(Resources theme) {
        Toolbar tb = getToolbar();
-        Image img = theme.getImage("dog.jpg");
+        Image img = theme.getImage("user-picture.jpg");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
             img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
         }
@@ -68,6 +68,7 @@ public abstract class SideMenuFront extends Form{
         ));
         
         tb.addMaterialCommandToSideMenu("Posts", FontImage.MATERIAL_SETTINGS, e -> new postFront(theme).show());
+         tb.addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_SETTINGS, e -> new produitFront(theme).show());
        
            //     tb.addMaterialCommandToSideMenu("Show Front", FontImage.MATERIAL_SETTINGS, e -> new postFront(theme).show());
 

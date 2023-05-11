@@ -50,7 +50,7 @@ public class LoginForm extends Form {
         getTitleArea().setUIID("Container");
         
         Image profilePic = theme.getImage("user-picture.jpg");
-        Image mask = theme.getImage("round-mask.png");
+        Image mask = theme.getImage("smily.png");
         profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
         Label profilePicLabel = new Label(profilePic, "ProfilePic");
         profilePicLabel.setMask(mask.createMask());

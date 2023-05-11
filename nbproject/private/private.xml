@@ -3,13 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/com/mycompany/myapp/entities/Produit.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/com/pidevv/MyApplication.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/Produit/gui/AllProduits.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/Produit/gui/ModifierProduit.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/Produit/gui/AddProduit.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/com/mycompany/myapp/entities/services/ServiceProduit.java</file>
-            <file>file:/C:/Users/azerb/Desktop/PIDEV%20MOBILE/src/com/mycompany/myapp/utils/Statics.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SideMenuFront.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ModifierPostForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/services/ServiceCommentaire.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Commentaire.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/Produit/gui/AddProduit.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/postFront.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/singlePost.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/StatsForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/LoginForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ajouter_post_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/Produit/gui/AllProduits.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/services/ServiceProduit.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/CleanModern.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Produit.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/WalkthruForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ActivateForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/pidevv/MyApplication.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SignInForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SignUpForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/services/ServicePost.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ProfileForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ajouter_comment_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Post.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/afficher_post_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/afficher_commentaire_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SideMenuBaseForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/NewsfeedForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/BaseForm.java</file>
         </group>
     </open-files>
 </project-private>
