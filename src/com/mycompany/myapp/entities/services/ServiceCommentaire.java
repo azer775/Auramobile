@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.services;
+package com.mycompany.myapp.entities.services;
 
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
@@ -11,9 +11,9 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.events.ActionListener;
-import com.mycompany.entities.Commentaire;
-import com.mycompany.entities.Post;
-import com.mycompany.utils.Statics;
+import com.mycompany.myapp.entities.Commentaire;
+import com.mycompany.myapp.entities.Post;
+import com.mycompany.myapp.utils.Statics;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;

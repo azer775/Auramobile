@@ -36,8 +36,8 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
-import com.mycompany.entities.Post;
-import com.mycompany.services.ServicePost;
+import com.mycompany.myapp.entities.Post;
+import com.mycompany.myapp.entities.services.ServicePost;
 import java.util.ArrayList;
 
 /**
@@ -63,7 +63,7 @@ public class postFront extends SideMenuFront{
 
         Label spacer1 = new Label();
         Label spacer2 = new Label();
-        addTab(swipe, theme.getImage("logo.png"), spacer1, "", "", "");
+        addTab(swipe, theme.getImage("Logo.png"), spacer1, "", "", "");
         addTab(swipe, theme.getImage("dog.jpg"), spacer2, "100 Likes  ", "66 Comments", "Dogs are cute: story at 11");
                 
         swipe.setUIID("Container");

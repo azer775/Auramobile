@@ -53,7 +53,7 @@ public abstract class SideMenuFront extends Form{
      
     public void setupSideMenu(Resources theme) {
        Toolbar tb = getToolbar();
-        Image img = theme.getImage("user-picture.jpg");
+        Image img = theme.getImage("dog.jpg");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
             img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
         }

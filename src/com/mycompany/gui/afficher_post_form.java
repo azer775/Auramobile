@@ -14,7 +14,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
 
-import com.mycompany.services.ServicePost;
+import com.mycompany.myapp.entities.services.ServicePost;
 import java.util.ArrayList;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.events.ActionListener;
@@ -37,7 +37,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
-import com.mycompany.entities.Post;
+import com.mycompany.myapp.entities.Post;
 
 
 

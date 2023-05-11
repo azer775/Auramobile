@@ -32,8 +32,8 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.ImageIO;
 import com.codename1.ui.util.Resources;
 import com.codename1.util.Base64;
-import com.mycompany.entities.Post;
-import com.mycompany.services.ServicePost;
+import com.mycompany.myapp.entities.Post;
+import com.mycompany.myapp.entities.services.ServicePost;
 //import com.codename1.datatransfer.DropTarget;
 //import java.awt.dnd.DropTarget;
 

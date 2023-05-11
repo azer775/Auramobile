@@ -19,6 +19,7 @@
 
 package com.mycompany.gui;
 
+import Produit.gui.AllProduits;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Component;
@@ -35,7 +36,7 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
-import com.mycompany.entities.Post;
+import com.mycompany.myapp.entities.Post;
 
 /**
  * Common code that can setup the side menu
@@ -73,7 +74,7 @@ public abstract class SideMenuBaseForm extends Form {
      
     public void setupSideMenu(Resources theme) {
        Toolbar tb = getToolbar();
-        Image img = theme.getImage("user-picture.jpg");
+        Image img = theme.getImage("Logo.png");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
             img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
         }
@@ -93,6 +94,7 @@ public abstract class SideMenuBaseForm extends Form {
         tb.addMaterialCommandToSideMenu("Gestion Commentaires", FontImage.MATERIAL_SETTINGS, e -> new afficher_commentaire_form(theme).show());
         tb.addMaterialCommandToSideMenu("Ajouter Post", FontImage.MATERIAL_SETTINGS, e ->  new ajouter_post_form(theme).show());
         tb.addMaterialCommandToSideMenu("Ajouter Commentaire", FontImage.MATERIAL_SETTINGS, e -> new ajouter_comment_form(theme).show());
+         tb.addMaterialCommandToSideMenu("Gestion Produits", FontImage.MATERIAL_SETTINGS, e -> new AllProduits(theme).show());
            //     tb.addMaterialCommandToSideMenu("Show Front", FontImage.MATERIAL_SETTINGS, e -> new postFront(theme).show());
 
 //   tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP,  e -> showOtherForm(theme));

@@ -12,7 +12,7 @@ import com.codename1.ui.Toolbar;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
-import com.mycompany.entities.Post;
+import com.mycompany.myapp.entities.Post;
 
 /**
  *

@@ -14,10 +14,10 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
-import com.mycompany.entities.Commentaire;
-import com.mycompany.entities.Post;
-import com.mycompany.services.ServicePost;
-import com.mycompany.services.ServiceCommentaire;
+import com.mycompany.myapp.entities.Commentaire;
+import com.mycompany.myapp.entities.Post;
+import com.mycompany.myapp.entities.services.ServicePost;
+import com.mycompany.myapp.entities.services.ServiceCommentaire;
 import java.util.ArrayList;
 
 /**
