@@ -22,6 +22,7 @@ package com.mycompany.gui;
 import com.codename1.components.FloatingHint;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
@@ -31,6 +32,7 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.services.Servicemembre;
 
 /**
  * Signup UI
@@ -49,16 +51,22 @@ public class SignUpForm extends BaseForm {
         tb.setBackCommand("", e -> previous.showBack());
         setUIID("SignIn");
                 
-        TextField username = new TextField("", "Username", 20, TextField.ANY);
+        TextField prenom = new TextField("", "Prenom", 20, TextField.ANY);
+        TextField username = new TextField("", "Nom", 20, TextField.ANY);
         TextField email = new TextField("", "E-Mail", 20, TextField.EMAILADDR);
+        TextField adresse = new TextField("", "adresse", 20, TextField.ANY);
         TextField password = new TextField("", "Password", 20, TextField.PASSWORD);
         TextField confirmPassword = new TextField("", "Confirm Password", 20, TextField.PASSWORD);
+        
         username.setSingleLineTextArea(false);
+        prenom.setSingleLineTextArea(false);
+        adresse.setSingleLineTextArea(false);
         email.setSingleLineTextArea(false);
         password.setSingleLineTextArea(false);
         confirmPassword.setSingleLineTextArea(false);
         Button next = new Button("Next");
         Button signIn = new Button("Sign In");
+        //signIn.addActionListener(e -> previous.showBack());
         signIn.addActionListener(e -> previous.showBack());
         signIn.setUIID("Link");
         Label alreadHaveAnAccount = new Label("Already have an account?");
@@ -66,6 +74,10 @@ public class SignUpForm extends BaseForm {
         Container content = BoxLayout.encloseY(
                 new Label("Sign Up", "LogoLabel"),
                 new FloatingHint(username),
+                createLineSeparator(),
+                new FloatingHint(prenom),
+                createLineSeparator(),
+                new FloatingHint(adresse),
                 createLineSeparator(),
                 new FloatingHint(email),
                 createLineSeparator(),
@@ -81,7 +93,14 @@ public class SignUpForm extends BaseForm {
                 FlowLayout.encloseCenter(alreadHaveAnAccount, signIn)
         ));
         next.requestFocus();
-        next.addActionListener(e -> new ActivateForm(res).show());
+       // next.addActionListener(e -> new ActivateForm(res).show());
+        next.addActionListener((e) -> {
+            
+            Servicemembre.getInstance().signup(prenom, username, email, adresse, password, res);
+            Dialog.show("Success","account is saved","OK",null);
+            new SignInForm(res).show();
+        });
+    }
     }
     
-}
+

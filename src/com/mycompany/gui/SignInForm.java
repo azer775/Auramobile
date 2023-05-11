@@ -29,6 +29,8 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.services.Servicemembre;
+import com.mycompany.myapp.entities.services.SessionManager;
 
 /**
  * Sign in UI
@@ -71,7 +73,19 @@ public class SignInForm extends BaseForm {
         content.setScrollableY(true);
         add(BorderLayout.SOUTH, content);
         signIn.requestFocus();
-        signIn.addActionListener(e ->  new postFront(res).show());
+        //signIn.addActionListener(e ->  new postFront(res).show());
+        signIn.addActionListener(e -> 
+        {
+               Servicemembre.getInstance().signin(username, password, res);
+               if(SessionManager.getRole().equals("membre"))
+               {new postFront(res).show();}
+               else{
+                    new WalkthruForm(res).show();
+               }
+               //new WalkthruForm(res).show();
+
+           
+        });
        // new postFront(res).show();
        // new WalkthruForm(res).show();
     }
