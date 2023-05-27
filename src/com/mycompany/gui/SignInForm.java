@@ -77,11 +77,12 @@ public class SignInForm extends BaseForm {
         signIn.addActionListener(e -> 
         {
                Servicemembre.getInstance().signin(username, password, res);
-               if(SessionManager.getRole().equals("membre"))
+               /*if(SessionManager.getRole().equals("membre"))
                {new postFront(res).show();}
-               else{
+               else{*/
                     new WalkthruForm(res).show();
-               }
+                  // new postFront(res).show();
+               //}
                //new WalkthruForm(res).show();
 
            

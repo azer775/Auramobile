@@ -19,6 +19,7 @@
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Produit.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/WalkthruForm.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ActivateForm.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/services/SessionManager.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/pidevv/MyApplication.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SignInForm.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SignUpForm.java</file>
@@ -27,7 +28,10 @@
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/ajouter_comment_form.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Post.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/afficher_post_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/Membre.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/afficher_commentaire_form.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/myapp/entities/services/Servicemembre.java</file>
+            <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/produitFront.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/SideMenuBaseForm.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/NewsfeedForm.java</file>
             <file>file:/C:/Users/azerb/Desktop/Auramobile/src/com/mycompany/gui/BaseForm.java</file>
